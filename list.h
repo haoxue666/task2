@@ -1,11 +1,23 @@
-
 #include <stdbool.h>
 #include <stdlib.h>
-typedef struct List List;
-typedef struct ListIterator ListIterator;
 
 typedef double LIST_TYPE;
 
+typedef struct LNode{
+    LIST_TYPE data;
+    struct LNode* prior;
+    struct LNode* next;
+} LNode;
+
+typedef struct List{
+    LNode* head;
+    LNode* tail;
+    int len;
+} List;
+typedef struct ListIterator{
+    LNode* current;
+    int position;    
+} ListIterator;
 
 // functions 
 // note the absence of reference
@@ -32,8 +44,6 @@ ListIterator list_end(List* lis);
 void ListIterator_self_increase(ListIterator* pIter);
 void ListIterator_self_decrease(ListIterator* pIter);
 
-ListIterator list_begin(List* lis);
-ListIterator list_end(List* lis);
 bool ListIterator_equal(ListIterator iter_a, ListIterator iter_b);
 bool ListIterator_not_equal(ListIterator iter_a, ListIterator iter_b);
 

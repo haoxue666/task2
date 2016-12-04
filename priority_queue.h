@@ -6,7 +6,16 @@ typedef double PRIORITY_QUEUE_TYPE;
 // e.g. typedef T = PRIORITY_QUEUE_TYPE;
 // NOTE YOU CAN ONLY DO THAT IN *.cpp FILES
 
-typedef struct Priority_queue Priority_queue;
+typedef struct PQNode{
+    PRIORITY_QUEUE_TYPE data;
+    struct PQNode* next;
+} PQNode;
+
+typedef struct Priority_queue{
+    PQNode* front;
+    PQNode* rear;
+    int size;
+} Priority_queue;
 
 // functions 
 // note the absence of reference

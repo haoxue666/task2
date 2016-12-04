@@ -5,8 +5,14 @@ typedef double QUEUE_TYPE;
 // in *.cpp file to make them shorter
 // e.g. typedef T = QUEUE_TYPE;
 // NOTE YOU CAN ONLY DO THAT IN *.cpp FILES
-
-typedef struct Queue Queue;
+typedef struct QNode{
+    QUEUE_TYPE data;
+    struct QNode* next;
+} QNode;
+typedef struct Queue{
+    QNode* front;
+    QNode* rear;
+} Queue;
 
 // functions 
 // note the absence of reference

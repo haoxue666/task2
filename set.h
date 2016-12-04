@@ -1,10 +1,26 @@
-
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-typedef struct Set Set;
-typedef struct SetIterator SetIterator;
-
 typedef double SET_TYPE;
+typedef struct Node{
+    SET_TYPE key;
+    bool color;
+    struct Node* child[2];
+    struct Node* parent;
+} Node;
+typedef struct Set{
+    Node* root;
+    Node* first;
+    Node* last;
+    int size;
+} Set;
+typedef struct SetIterator{
+    Node* pointer;
+    Set* set;
+} SetIterator;
+
 
 
 // functions 

@@ -6,8 +6,15 @@ typedef double VECTOR_TYPE;
 // e.g. typedef T = VECTOR_TYPE;
 // NOTE YOU CAN ONLY DO THAT IN *.cpp FILES
 
-typedef struct Vector Vector;
-typedef struct VectorIterator VectorIterator;
+typedef struct Vector{
+    VECTOR_TYPE* base;//储存空间基址
+    int len;//当前长度
+    int size;//当前分配储存容量
+} Vector;
+typedef struct VectorIterator{
+    VECTOR_TYPE* iterator;
+    int position;
+} VectorIterator;
 // NOTE THAT C has no reference 
 // so just ensure the followings works
 
@@ -42,7 +49,6 @@ void vector_clear(Vector* vec);
 // =>   a, b, c, ...,m, value, where, n, ...
 // 'where' could be end()
 void vector_insert(Vector* vec, int where, VECTOR_TYPE value);
-void vector_erase(Vector* vec, int where, VECTOR_TYPE value);
 
 void vector_erase(Vector* vec, int where);
 

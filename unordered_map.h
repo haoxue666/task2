@@ -1,11 +1,20 @@
-
 #include <stdbool.h>
 #include <stdlib.h>
-typedef struct Unordered_map Unordered_map;
 typedef long long UNORDERED_MAP_KEY;
 typedef double UNORDERED_MAP_TYPE;
+typedef struct HNode{
+    UNORDERED_MAP_KEY key;
+    UNORDERED_MAP_TYPE data;
+    struct HNode* next;
+}HNode;
+typedef struct Unordered_map{
+    HNode* hash_node;
+    int count;
+    int size;
+}Unordered_map;
 
-
+static void unordered_map_resize(Unordered_map* st);
+static int hashcode(long long key);
 // functions 
 // note the absence of reference
 bool unordered_map_empty(Unordered_map* st);
